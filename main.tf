@@ -30,6 +30,6 @@ resource "null_resource" "docker-Deployment-Ansible" {
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i '${module.docker-Deployment-Ansible.instance_public_ip},' --private-key ./ec2-key-pair instalDocAnsi.yml"
-  }
+    command = "ansible-playbook -i '${module.docker-Deployment-Ansible.instance_public_ip},' -u ubuntu --private-key ./ec2-key-pair instalDocAnsi.yml"
+  }                         
 }

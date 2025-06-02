@@ -4,11 +4,15 @@
   become: yes 
 
   tasks:
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600  # optional: update only if older than 1 hour
+
   - name: Install Docker
     apt:
       name: docker.io
       state: latest
-
   - name: Start Docker
     service: 
       name: docker
@@ -20,7 +24,7 @@
       groups: docker       # Add to the docker group
       append: yes          # Keep existing groups
 
-  - name: Pull nginx image from Docker Hub
+  - name: Pull Docker image from Docker Hub
     community.docker.docker_image:     #module to pull the Docker image
         name: ganeshmestry21/my-django-note-app
         source: pull
