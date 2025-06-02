@@ -31,3 +31,18 @@ variable "instanceName" {
     description = "This is Automate Docker DeploymentS"
   
 }
+
+variable "ssh_user" {
+    type = string
+    description = "This is Automate Docker DeploymentS"
+}
+
+variable "private_key_path" {
+  description = "Path to private key directory"
+  type        = string
+}
+
+variable "private_key" {
+  description = "Private key filename"
+  type        = string
+}
